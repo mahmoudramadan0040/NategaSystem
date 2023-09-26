@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from '../database/index'
+import Student from "./student.model";
 const Subject_score = sequelize.define("subject_score", {
     id:{
         allowNull:false,
@@ -47,5 +48,6 @@ const Subject_score = sequelize.define("subject_score", {
     timestamps:true
  }
  );
-
+ Student.hasOne(Subject_score)
+ Subject_score.belongsTo(Student)
 export default Subject_score;

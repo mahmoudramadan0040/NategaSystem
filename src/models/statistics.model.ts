@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from '../database/index'
+import Student from "./student.model";
 const Statistics = sequelize.define("statistics", {
     id:{
         allowNull:false,
@@ -23,5 +24,6 @@ const Statistics = sequelize.define("statistics", {
     timestamps:true
  }
  );
-
+ Student.hasOne(Statistics)
+ Statistics.belongsTo(Student)
 export default Statistics;

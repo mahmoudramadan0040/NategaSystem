@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from '../database/index'
-const Subject_grade = sequelize.define("subject_Subject_grade", {
+import Student from "./student.model";
+const Subject_grade = sequelize.define("subject_grade", {
     id:{
         allowNull:false,
         type:DataTypes.UUID,
@@ -47,5 +48,7 @@ const Subject_grade = sequelize.define("subject_Subject_grade", {
     timestamps:true
  }
  );
+ Student.hasOne(Subject_grade)
+ Subject_grade.belongsTo(Student)
 
 export default Subject_grade;
